@@ -1,0 +1,230 @@
+<!-- ========================================
+     LOGIN.HTML - IMPLEMENTATION EXAMPLE
+     Updated to use new CSS & JavaScript files
+     ======================================== -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FOODflow catering — Sign In</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  
+  <!-- Main CSS Files (Link these instead of inline styles) -->
+  <link rel="stylesheet" href="css/login.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+</head>
+
+<body>
+  <!-- Background Effects -->
+  <div class="bg-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="particles"></div>
+
+  <!-- Login Wrapper -->
+  <div class="login-wrap">
+    
+    <!-- LEFT BRAND PANEL -->
+    <div class="brand-panel">
+      <!-- Top Section -->
+      <div class="brand-top">
+        <!-- Logo -->
+        <div class="brand-logo">
+          <div class="brand-logo-icon">
+            <i class="fa-solid fa-warehouse"></i>
+          </div>
+          <div class="brand-logo-text">
+            <span class="brand-logo-title">FOODflow</span>
+            <span class="brand-logo-sub">PRO</span>
+          </div>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="brand-headline">
+          <em>FOODflow</em> Made Simple
+        </h1>
+        <p class="brand-sub">
+          Streamline your warehouse operations with real-time stock tracking, 
+          damage reporting, and comprehensive staff management tools.
+        </p>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="brand-bottom">
+        <div class="stat-strip">
+          <div class="stat-strip-item">
+            <span class="stat-strip-val">18</span>
+            <span class="stat-strip-lbl">Active Users</span>
+          </div>
+          <div class="stat-strip-item">
+            <span class="stat-strip-val">247</span>
+            <span class="stat-strip-lbl">Items Tracked</span>
+          </div>
+          <div class="stat-strip-item">
+            <span class="stat-strip-val">99.2%</span>
+            <span class="stat-strip-lbl">Uptime SLA</span>
+          </div>
+        </div>
+
+        <!-- System Status -->
+        <div class="system-status">
+          <div class="sys-item">
+            <span class="sys-dot online"></span>
+            <span>System Online</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-dot online"></span>
+            <span>API Active</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-dot online"></span>
+            <span>Sync OK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM PANEL -->
+    <div class="form-panel">
+      <div class="login-card">
+        
+        <!-- Form Header -->
+        <div class="login-card-header">
+          <h3>Welcome Back</h3>
+          <p>Sign in to your FOODflow account to continue</p>
+        </div>
+
+        <!-- LIFTED TABS NAVIGATION -->
+        <div class="login-tabs">
+          <button type="button" class="login-tab active" data-tab="manager" onclick="switchTab(this)">
+            <i class="fa-solid fa-user-shield"></i> Manager
+          </button>
+          <button type="button" class="login-tab" data-tab="staff" onclick="switchTab(this)">
+            <i class="fa-solid fa-id-badge"></i> Staff
+          </button>
+          <button type="button" class="login-tab" data-tab="catering" onclick="switchTab(this)">
+            <i class="fa-solid fa-utensils"></i> Storekeeper
+          </button>
+          <button type="button" class="login-tab" data-tab="auditor" onclick="switchTab(this)">
+            <i class="fa-solid fa-eye"></i> Auditor
+          </button>
+        </div>
+
+        <!-- MANAGER LOGIN FORM -->
+        <form id="manager-form" class="login-form">
+          <div class="form-group">
+            <label for="manager-email">Email Address</label>
+            <input 
+              type="email" 
+              id="manager-email" 
+              name="email" 
+              class="form-control" 
+              placeholder="manager@example.com" 
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="manager-password">Password</label>
+            <input 
+              type="password" 
+              id="manager-password" 
+              name="password" 
+              class="form-control" 
+              placeholder="••••••••" 
+              required
+            />
+          </div>
+
+          <div class="form-group" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+            <label style="display:flex;align-items:center;gap:8px;margin:0;cursor:pointer;">
+              <input type="checkbox" name="remember" style="cursor:pointer;"/>
+              <span style="font-size:12px;color:var(--text-secondary);">Remember me</span>
+            </label>
+            <a href="#" style="font-size:12px;color:var(--accent-cyan);">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="login-btn">
+            <i class="fa-solid fa-arrow-right"></i> Sign In as Manager
+          </button>
+        </form>
+
+        <!-- STAFF LOGIN FORM (Hidden by default) -->
+        <form id="staff-form" class="login-form" style="display:none;">
+          <div class="form-group">
+            <label for="staff-email">Email Address</label>
+            <input 
+              type="email" 
+              id="staff-email" 
+              name="email" 
+              class="form-control" 
+              placeholder="staff@example.com" 
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="staff-password">Password</label>
+            <input 
+              type="password" 
+              id="staff-password" 
+              name="password" 
+              class="form-control" 
+              placeholder="••••••••" 
+              required
+            />
+          </div>
+
+          <div class="form-group" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+            <label style="display:flex;align-items:center;gap:8px;margin:0;cursor:pointer;">
+              <input type="checkbox" name="remember" style="cursor:pointer;"/>
+              <span style="font-size:12px;color:var(--text-secondary);">Remember me</span>
+            </label>
+            <a href="#" style="font-size:12px;color:var(--accent-cyan);">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="login-btn">
+            <i class="fa-solid fa-arrow-right"></i> Sign In as Staff
+          </button>
+        </form>
+
+        <!-- More forms for Catering & Auditor... (same structure) -->
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Files -->
+  <script>
+    // Tab switching function (if not using login.js)
+    function switchTab(buttonElement) {
+      // This is handled by login.js automatically
+      // But you can add custom logic here if needed
+    }
+  </script>
+  
+  <!-- Link our JavaScript files -->
+  <script src="js/login.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
+
+<!-- ========================================
+     NOTES:
+     1. Replace inline <style> tags with external CSS links
+     2. All CSS variables are defined in css/login.css
+     3. Animations are handled by css/animations.css
+     4. Tab switching and form validation in js/login.js
+     5. General functionality in js/main.js
+     6. The "lifted tab" effect is key feature - TRY IT!
+     ======================================== -->
