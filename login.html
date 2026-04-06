@@ -98,8 +98,7 @@
     .role-btn[data-role="manager"].active {border-color:var(--accent-cyan);background:rgba(6,182,212,0.1);color:var(--accent-cyan);box-shadow:0 0 14px rgba(6,182,212,0.15);}
     .role-btn[data-role="catering"].active{border-color:var(--accent-amber);background:rgba(245,158,11,0.1);color:var(--accent-amber);box-shadow:0 0 14px rgba(245,158,11,0.15);}
     .role-btn[data-role="staff"].active   {border-color:var(--accent-green);background:rgba(16,185,129,0.1);color:var(--accent-green);box-shadow:0 0 14px rgba(16,185,129,0.15);}
-    .role-btn[data-role="viewer"].active  {border-color:var(--navy-300);background:rgba(37,99,235,0.1);color:var(--navy-200);box-shadow:0 0 14px rgba(37,99,235,0.12);}
-
+    
     /* ROLE INFO BANNER */
     .role-info-banner{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--radius-sm);border:1px solid;font-size:12px;color:var(--text-secondary);line-height:1.5;margin-bottom:20px;transition:var(--transition);min-height:50px;animation:fadeSlideUp 0.4s ease 0.46s both;}
     .role-info-banner i{font-size:13px;margin-top:1px;flex-shrink:0;}
@@ -223,8 +222,7 @@
     .access-badge{padding:4px 10px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;transition:var(--transition);}
     .access-badge.manager{background:rgba(6,182,212,0.15);color:var(--accent-cyan);border:1px solid rgba(6,182,212,0.3);}
     .access-badge.catering{background:rgba(245,158,11,0.15);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.3);}
-    .access-badge.staff{background:rgba(16,185,129,0.15);color:var(--accent-green);border:1px solid rgba(16,185,129,0.3);}
-    .access-badge.viewer{background:rgba(37,99,235,0.15);color:var(--navy-300);border:1px solid rgba(37,99,235,0.3);}
+    .access-badge.staff{background:rgba(16,185,129,0.15);color:var(--accent-green);border:1px solid rgba(16,185,129,0.3);}.access-badge.viewer{background:rgba(37,99,235,0.15);color:var(--navy-300);border:1px solid rgba(37,99,235,0.3);}
     .access-card:hover .access-badge{transform:scale(1.08);}
 
     @media(max-width:900px){.brand-panel{display:none;}.form-panel{width:100%;min-height:auto;padding:40px 28px;}}
@@ -278,14 +276,7 @@
         </div>
         <div class="access-badge staff">Limited</div>
       </div>
-      <div class="access-card viewer">
-        <div class="access-icon blue"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-        <div class="access-info">
-          <div class="access-title">Auditor / Viewer</div>
-          <div class="access-desc">Read-only access to all records and reports</div>
-        </div>
-        <div class="access-badge viewer">Read Only</div>
-      </div>
+      
     </div>
 
     <div class="brand-bottom">
@@ -312,21 +303,10 @@
 
       <div class="login-card-header">
         <h2>Welcome Back</h2>
-        <p>Select your role and sign in to access your workspace</p>
+        <p>Measured stock , Mastered Taste , No waste</p>
       </div>
 
-      <div class="role-section-label">Your Access Role</div>
-      <div class="role-selector">
-        <button class="role-btn active" data-role="Storekeeper"  onclick="selectRole(this)"><i class="fa-solid fa-user-shield"></i> Storekeeper</button>
-        <button class="role-btn" data-role="catering" onclick="selectRole(this)"><i class="fa-solid fa-utensils"></i> Catering Mgr</button>
-        <button class="role-btn" data-role="staff"    onclick="selectRole(this)"><i class="fa-solid fa-id-badge"></i> Staff Member</button>
-        <button class="role-btn" data-role="viewer"   onclick="selectRole(this)"><i class="fa-solid fa-magnifying-glass-chart"></i> Auditor</button>
-      </div>
-
-      <div class="role-info-banner rib-manager" id="roleBanner">
-        <i class="fa-solid fa-circle-info"></i>
-        <span id="roleBannerText">Full access: inventory management, stock control, damage reports, all staff records, and analytics dashboard.</span>
-      </div>
+      
 
       <div class="field-group" id="emailGroup">
         <div class="field-label"><span>Email Address</span></div>
@@ -372,9 +352,9 @@
 
       <div class="divider">quick demo access</div>
       <div class="demo-creds">
-        <button class="demo-cred-btn" onclick="fillDemo('storekeeper@foodflow.com','Manager@1234','manager')">
+        <button class="demo-cred-btn" onclick="fillDemo('storekeeper@foodflow.com','Storekeeper@1234','manager')">
           <span class="cred-role mgr"><i class="fa-solid fa-user-shield"></i> Storekeeper</span>
-          <span class="cred-val">storekeeper@foodflow.com</span><span class="cred-val">Manager@1234</span>
+          <span class="cred-val">storekeeper@foodflow.com</span><span class="cred-val">Storekeeper@1234</span>
         </button>
         <button class="demo-cred-btn" onclick="fillDemo('catering@foodflow.com','Catering@5678','catering')">
           <span class="cred-role cat"><i class="fa-solid fa-utensils"></i> Catering Mgr</span>
@@ -384,10 +364,7 @@
           <span class="cred-role stf"><i class="fa-solid fa-id-badge"></i> Staff Member</span>
           <span class="cred-val">staff@foodflow.com</span><span class="cred-val">Staff@9999</span>
         </button>
-        <button class="demo-cred-btn" onclick="fillDemo('auditor@foodflow.com','Audit@0000','viewer')">
-          <span class="cred-role vwr"><i class="fa-solid fa-magnifying-glass-chart"></i> Auditor</span>
-          <span class="cred-val">auditor@foodflow.com</span><span class="cred-val">Audit@0000</span>
-        </button>
+       
       </div>
 
       <div class="form-footer">
@@ -406,7 +383,7 @@ const ROLES = {
     label:'Storekeeper',icon:'fa-user-shield',
     bannerClass:'rib-storekeeper',
     desc:'Full access: inventory management, stock control, damage reports, all staff records, and analytics dashboard.',
-    redirect:'storekeeper.html?role=storekeeper&filter=demand',
+    redirect:'storekeeper.html',
   },
   catering: {
     label:'Catering Manager',icon:'fa-utensils',
@@ -420,19 +397,14 @@ const ROLES = {
     desc:'View available stock levels, log your personal item checkouts, and report damaged or broken items.',
     redirect:'staff.html',
   },
-  viewer: {
-    label:'Auditor / Viewer',icon:'fa-magnifying-glass-chart',
-    bannerClass:'rib-viewer',
-    desc:'Read-only access to all inventory records, damage logs, staff checkouts, and full analytics reports.',
-    redirect:'viewer.html',
-  },
+ 
 };
 
 const CREDS = [
   {email:'storekeeper@foodflow.com', pass:'Storekeeper@1234',  role:'storekeeper',  name:'Storekeeper'},
   {email:'catering@foodflow.com',pass:'Catering@5678', role:'catering', name:'Catering Manager'},
   {email:'staff@foodflow.com',   pass:'Staff@9999',    role:'staff',    name:'Staff Member'},
-  {email:'auditor@foodflow.com', pass:'Audit@0000',    role:'viewer',   name:'Auditor'},
+  
 ];
 
 let selectedRole='manager', attempts=0;

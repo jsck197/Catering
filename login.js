@@ -1,10 +1,4 @@
-/* ========================================
-   INVENTRACK PRO - LOGIN SCRIPT
-   Login Page Specific Functionality
-   ======================================== */
 
-// ========================================
-// INITIALIZATION
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -275,7 +269,7 @@ function showSuccessAnimation(callback) {
 
   // Fade out
   setTimeout(() => {
-    checkmark.style.animation = 'fadeOut 0.3s ease';
+    checkmark.style.animation = 'fadeOut 0.1s ease';
     setTimeout(() => {
       checkmark.remove();
       callback();
